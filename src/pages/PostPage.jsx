@@ -35,13 +35,14 @@ const PostPage = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
-      className="prose prose-lg dark:prose-invert max-w-none"
+      // Ajuste de las clases prose para usar la fuente comic en títulos y colores
+      className="prose prose-lg dark:prose-invert max-w-none prose-headings:font-comic prose-a:text-marvel-red dark:prose-a:text-marvel-yellow prose-h1:text-marvel-red dark:prose-h1:text-marvel-yellow prose-h2:border-b-4 prose-h2:border-marvel-red dark:prose-h2:border-marvel-yellow prose-h2:pb-1"
     >
-        <Link to="/" className="flex items-center gap-2 mb-8 text-sky-600 dark:text-sky-400 hover:underline">
+        <Link to="/" className="flex items-center gap-2 mb-8 text-marvel-blue dark:text-marvel-yellow hover:underline">
             <ArrowLeft size={18} />
             Volver a inicio
         </Link>
-        <h1 className="text-4xl font-extrabold tracking-tight">{post.title}</h1>
+        <h1 className="text-4xl font-extrabold tracking-wider" style={{ textShadow: '2px 2px 0px #000' }}>{post.title}</h1>
         <div className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400 mb-8">
             <Calendar size={14} />
             <span>{new Date(post.date).toLocaleDateString('es-MX', { year: 'numeric', month: 'long', day: 'numeric' })}</span>

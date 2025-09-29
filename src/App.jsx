@@ -29,8 +29,13 @@ function App() {
     setTheme(theme === 'dark' ? 'light' : 'dark');
   };
 
+  // Determinar las clases de fondo
+  const backgroundClass = theme === 'dark' 
+    ? 'dark-bg-comic' // Clase CSS personalizada
+    : 'bg-gray-50'; // Clase Tailwind predeterminada
+
   return (
-    <div className="bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-gray-200 min-h-screen font-sans">
+    <div className={`${backgroundClass} text-gray-800 dark:text-gray-200 min-h-screen font-sans`}>
       <Navbar theme={theme} handleThemeSwitch={handleThemeSwitch} />
       <main className="container mx-auto px-4 py-8 max-w-4xl">
         <Routes>

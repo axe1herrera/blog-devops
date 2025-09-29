@@ -5,20 +5,20 @@ const contactLinks = [
   {
     icon: <Github size={24} />,
     name: 'GitHub',
-    url: 'https://github.com/tu-usuario',
-    handle: 'tu-usuario'
+    url: 'https://github.com/axe1herrera',
+    handle: 'Axel Herrera'
   },
   {
     icon: <Linkedin size={24} />,
     name: 'LinkedIn',
-    url: 'https://linkedin.com/in/tu-usuario',
-    handle: 'tu-usuario'
+    url: 'https://www.linkedin.com/in/axel-noe-herrera-castillo-852440258/',
+    handle: 'Axel Herrera'
   },
   {
     icon: <Mail size={24} />,
     name: 'Correo',
-    url: 'mailto:tu-correo@example.com',
-    handle: 'tu-correo@example.com'
+    url: 'mailto:axeleno233@gmail.com',
+    handle: 'axeleno233@gmail.com'
   }
 ];
 
@@ -29,7 +29,8 @@ const ContactPage = () => {
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
     >
-      <h1 className="text-4xl font-extrabold mb-8 tracking-tight">Contacto</h1>
+      <h1 className="text-4xl font-comic tracking-wider font-extrabold mb-8 text-marvel-red dark:text-marvel-yellow"
+          style={{ textShadow: '3px 3px 0px #000' }}>Contacto</h1>
       <p className="text-lg text-gray-600 dark:text-gray-300 mb-12">
         Siempre estoy abierto a conectar con otros apasionados por la tecnología. Si quieres charlar sobre DevOps, la nube, o cualquier otro tema, no dudes en contactarme a través de estos canales.
       </p>
@@ -43,12 +44,13 @@ const ContactPage = () => {
             rel="noopener noreferrer"
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.3, delay: index * 0.1 }}
-            whileHover={{ y: -5, boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)" }}
-            className="block p-6 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg text-center"
+            transition={{ duration: 0.3, delay: index * 0.1, type: "spring", stiffness: 100 }}
+            whileHover={{ y: -5, boxShadow: "5px 5px 0px #FEE001" }} // Efecto de "Pop" con sombra amarilla
+            className="block p-6 bg-white dark:bg-gray-800 border-4 border-black dark:border-marvel-yellow rounded-lg text-center"
+            style={{ boxShadow: '3px 3px 0px #E62429' }} // Sombra estática roja
           >
-            <div className="inline-block text-sky-500 mb-4">{link.icon}</div>
-            <h3 className="text-xl font-semibold mb-2">{link.name}</h3>
+            <div className="inline-block text-marvel-red dark:text-marvel-yellow mb-4">{link.icon}</div>
+            <h3 className="text-xl font-comic font-semibold mb-2">{link.name}</h3>
             <p className="text-gray-500 dark:text-gray-400">{link.handle}</p>
           </motion.a>
         ))}

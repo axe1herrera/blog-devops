@@ -57,8 +57,11 @@ const HomePage = () => {
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
     >
-      {/* Usamos font-serif para el título principal */}
-      <h1 className="text-4xl md:text-5xl font-extrabold mb-12 tracking-tight text-gray-900 dark:text-gray-100">Bitácora de un Futuro DevOps</h1>
+      {/* Usamos font-comic para el título principal con sombra de texto */}
+      <h1 className="text-4xl md:text-5xl font-comic tracking-wider font-extrabold mb-12 text-marvel-red dark:text-marvel-yellow"
+          style={{ textShadow: '3px 3px 0px #000, -3px -3px 0px #000, 3px -3px 0px #000, -3px 3px 0px #000' }}>
+        Blog about DevOps
+      </h1>
 
       <div className="space-y-12">
         {posts.map((post) => (
@@ -68,7 +71,7 @@ const HomePage = () => {
 
       {/* 3. Nueva sección de libros */}
       <section className="mt-20">
-        <h2 className="text-3xl font-bold mb-8 text-gray-900 dark:text-gray-100">Libros Recomendados</h2>
+        <h2 className="text-3xl font-comic tracking-wider font-bold mb-8 text-gray-900 dark:text-gray-100">Libros Recomendados</h2>
 
         <div className="flex gap-8 overflow-x-auto pb-4 -mx-4 px-4">
           {recommendedBooks.map((book, index) => (
