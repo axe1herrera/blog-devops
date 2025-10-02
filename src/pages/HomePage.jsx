@@ -1,10 +1,9 @@
 // src/pages/HomePage.jsx
 import { useState, useEffect } from 'react';
 import PostCard from '../components/PostCard';
-import BookCard from '../components/BookCard'; // 1. Importa el nuevo componente
+import BookCard from '../components/BookCard';
 import { motion } from 'framer-motion';
 
-// 2. Datos de ejemplo para los libros (puedes reemplazarlos con los tuyos)
 const recommendedBooks = [
   {
     title: "Docker Deep Dive",
@@ -16,7 +15,7 @@ const recommendedBooks = [
     author: "Justin Domingus & John Arundel",
     imageUrl: "https://m.media-amazon.com/images/I/81b66iRUWZL._SL1500_.jpg"
   },
-   {
+  {
     title: "Clean Code",
     author: "Robert C. Martin",
     imageUrl: "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1436202607l/3735293.jpg"
@@ -26,7 +25,6 @@ const recommendedBooks = [
 const HomePage = () => {
   const [posts, setPosts] = useState([]);
 
-  // ... (tu useEffect para cargar posts se queda igual)
   useEffect(() => {
     const fetchPosts = async () => {
       const postModules = import.meta.glob('../_posts/*.md', { as: 'raw' });
@@ -57,33 +55,34 @@ const HomePage = () => {
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
     >
-      {/* Usamos font-comic para el título principal con sombra de texto */}
       <h1 className="text-4xl md:text-5xl font-comic tracking-wider font-extrabold mb-12 text-marvel-red dark:text-marvel-yellow"
           style={{ textShadow: '3px 3px 0px #000, -3px -3px 0px #000, 3px -3px 0px #000, -3px 3px 0px #000' }}>
         Blog about DevOps
       </h1>
 
-      <div className="space-y-12">
-        {posts.map((post) => (
-          <PostCard key={post.slug} post={post} />
-        ))}
-      </div>
-
-      {/* 3. Nueva sección de libros */}
-      <section className="mt-20">
-        <h2 className="text-3xl font-comic tracking-wider font-bold mb-8 text-gray-900 dark:text-gray-100">Libros Recomendados</h2>
-
-        <div className="flex gap-8 overflow-x-auto pb-4 -mx-4 px-4">
-          {recommendedBooks.map((book, index) => (
-            <BookCard 
-              key={index}
-              title={book.title}
-              author={book.author}
-              imageUrl={book.imageUrl}
-            />
+      <div className="flex flex-col md:flex-row md:gap-10">
+        {/* Columna de Posts */}
+        <div className="md:w-2/3 space-y-12">
+          {posts.map((post) => (
+            <PostCard key={post.slug} post={post} />
           ))}
         </div>
-      </section>
+
+        {/* Columna de Libros */}
+        <aside className="md:w-1/3 mt-20 md:mt-0">
+          <h2 className="text-3xl font-comic tracking-wider font-bold mb-8 text-gray-900 dark:text-gray-100">Libros Recomendados</h2>
+          <div className="flex flex-col gap-8">
+            {recommendedBooks.map((book, index) => (
+              <BookCard
+                key={index}
+                title={book.title}
+                author={book.author}
+                imageUrl={book.imageUrl}
+              />
+            ))}
+          </div>
+        </aside>
+      </div>
     </motion.div>
   );
 };

@@ -4,15 +4,15 @@ import { motion } from 'framer-motion';
 const BookCard = ({ title, author, imageUrl }) => {
   return (
     <motion.div
-      whileHover={{ scale: 1.1, rotate: 2, zIndex: 10 }} // Efecto más dramático
+      whileHover={{ scale: 1.05, rotate: 1, zIndex: 10 }} // Ajuste sutil para evitar cortes
       whileTap={{ scale: 0.95 }}
-      className="flex flex-col items-center text-center w-40 flex-shrink-0 cursor-pointer"
+      className="flex flex-col items-center text-center w-full max-w-xs mx-auto cursor-pointer"
     >
-      <div className="relative rounded-lg border-4 border-black shadow-lg transition-shadow duration-300 overflow-hidden" 
+      <div className="relative rounded-lg border-4 border-black shadow-lg transition-shadow duration-300 overflow-hidden"
            style={{ boxShadow: '5px 5px 0px #E62429' }}> {/* Borde y sombra al estilo comic */}
-        <img 
-          src={imageUrl} 
-          alt={`Portada del libro ${title}`} 
+        <img
+          src={imageUrl}
+          alt={`Portada del libro ${title}`}
           className="w-full h-56 object-cover rounded-sm" // Reduje el redondeo para el estilo comic
         />
         {/* Un toque de color de comic en la esquina */}
